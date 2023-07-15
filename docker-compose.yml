@@ -1,0 +1,25 @@
+version: "3"
+services:
+  server:
+    image: stationeers-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./data/saves/:/home/steam/stationeers/saves/
+      - ./data/mods/:/home/steam/stationeers/rocketstation_DedicatedServer_Data/StreamingAssets/Data/Mods/
+      - ./data/setting.xml:/home/steam/stationeers/setting.xml
+    environment:
+      - SERVER_IP=0.0.0.0
+      - SERVER_PORT=27016
+      - SERVER_NAME=Stationeers
+      - SERVER_PASSWORD=
+      - SERVER_MAXPLAYERS=10
+      - SERVER_UPNP=false
+      - SERVER_ADMINPASSWORD=asuperstrongpassword
+      - SERVER_SAVENAME=default # Load a save or create a new one
+      - SERVER_MAP=mars # Map to create if no save exists
+    ports:
+      - 27016:27016/udp
+    stdin_open: true
+    tty: true
