@@ -26,7 +26,7 @@ The game is saved automatically every 5 minutes. To save manually, run the comma
 
 To stop the server, navigate to the root folder and run `docker-compose stop`. If you want to remove the container and network that were created, run `docker-compose down` (this won't erase save files).
 
-**WARNING**: the game is not saved automatically when running `quit`! Do not forget to save!
+**WARNING**: the game is not saved automatically when stopping the server! Do not forget to save manually!
 
 ## Data storage
 The saves are stored in `data/saves` folder. The setting are stored in `data/setting.xml` file. Make sure that data folder is readble and writable by user with uid 1000. If you are having permissions issue, you can update the permissions by running `chmod -R 777 data` to make the folder readble and writable by all users on the system.
